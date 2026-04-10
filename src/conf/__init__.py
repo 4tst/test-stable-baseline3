@@ -7,6 +7,7 @@ from alembic.config import Config
 
 PROJECT_ROOT_DIR = Path(__file__).parent.parent.parent
 
+DEBUG = True
 
 def get_runtime_root_dir():
     """
@@ -21,14 +22,17 @@ def get_runtime_root_dir():
 
 RUNTIME_ROOT_DIR = get_runtime_root_dir()
 DATA_DIR = RUNTIME_ROOT_DIR / "data"
+SIDE_CAR_DIR = RUNTIME_ROOT_DIR / "sidecar"
+STATIC_DIR = RUNTIME_ROOT_DIR / "static"
 
-for d in [DATA_DIR]:
+for d in [DATA_DIR, SIDE_CAR_DIR, STATIC_DIR]:
     d.mkdir(parents=True, exist_ok=True)
 
-APP_NAME = "pyproject-tmpl"
+APP_NAME = "fastapi-starter"
 
-DB_URL = f"sqlite:///{DATA_DIR / f'{APP_NAME}.db'}"
-
+DB_PATH = DATA_DIR / f"{APP_NAME}.db"
+DB_URL = f"sqlite:///{DB_PATH}"
+ASYNC_DB_URL = f"sqlite+aiosqlite:///{DB_PATH}"
 
 def setup_alembic(config: Union[Config, None] = None):
     """

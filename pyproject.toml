@@ -15,15 +15,24 @@ dependencies = [
     "sqlmodel>=0.0.31",
     "typer>=0.21.1",
     "typing-extensions>=4.15.0",
+    "fastapi[standard]>=0.128.0",
 ]
 
 [project.optional-dependencies]
 system = [
     "psutil>=7.2.1",
 ]
+fastapi = [
+    "fastapi-pagination>=0.15.10",
+    "fastapi-users[sqlalchemy]>=15.0.4",
+    "pwdlib[argon2]>=0.3.0",
+    "pyjwt>=2.12.1",
+    "slowapi>=0.1.9",
+]
 
-all =[
-    "pyproject-tmpl[system]"
+all = [
+    "pyproject-tmpl[system]",
+    "pyproject-tmpl[fastapi]",
 ]
 
 # 使用uv_build时

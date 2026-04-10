@@ -1,4 +1,4 @@
-# pyproject-tmpl
+# fastapi-starter
 
 ## features
 
@@ -10,6 +10,11 @@
 6. typer for cli
 7. sqlmodel for database ORM
 8. alembic for database migration
+9. preset middlewares, including:
+    1. [slowapi](https://slowapi.readthedocs.io/en/latest/) for rate limit
+    2. [fastapi-users](https://fastapi-users.github.io/fastapi-users) for auth
+    3. [cors](https://fastapi.tiangolo.com/tutorial/cors/) for cross-origin resource sharing
+    4. [fastapi-pagination](https://uriyyo-fastapi-pagination.netlify.app/) for pagination
 
 ## introduction
 
@@ -30,11 +35,18 @@ before you start:
 ### unit test
 
 `uv run -m pytest`
+
 > `htmlcov` folder contains html coverage report.
 
 ### run cli
 
 `uv run main.py --help`
+
+### run server
+
+`uv run main.py serve`
+
+> if you have `html` files need to `serve`, please put them in `static` folder.
 
 ### release sdk
 

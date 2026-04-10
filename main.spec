@@ -4,8 +4,11 @@ datas=[
     ("src/conf","conf"),
     ("src/my_sdk","my_sdk"),
     ("src/biz","biz"),
+    ("src/middleware","middleware"),
     ("alembic","alembic"),
     ("alembic.ini","."),
+    ("sidecar","sidecar"),
+    ("static","static"),
 ]
 
 a = Analysis(
@@ -20,7 +23,7 @@ a = Analysis(
         "alembic",
         'sqlalchemy', 'sqlmodel', "sqlalchemy.sql.default_comparator",
         "sqlalchemy.engine.url", "sqlalchemy.dialects.sqlite",
-        'sqlite3',
+        'sqlite3', 'aiosqlite', 'aiohttp',
         "uvicorn.logging",          # 核心日志模块
         "uvicorn.logging.DefaultFormatter",  # 显式指定默认格式化器
         "logging.config",           # Python 标准库日志配置
@@ -34,7 +37,7 @@ a = Analysis(
         "uvicorn.protocols.websockets.auto",
         "uvicorn.lifespan",
         "uvicorn.lifespan.on",
-        "fastapi.middleware.cors"
+        "fastapi.middleware.cors",
     ],
     hookspath=[],
     hooksconfig={},
