@@ -18,5 +18,7 @@
     //     "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}:${env:PYTHONPATH}"
     // },
     "python.envFile": "${workspaceFolder}/.env",
-    "jupyter.envFile": "${workspaceFolder}/.env"
+    "jupyter.envFile": "${workspaceFolder}/.env",
+    "python-envs.defaultEnvManager": "ms-python.python:conda",
+    "python-envs.defaultPackageManager": "ms-python.python:conda"
 }
